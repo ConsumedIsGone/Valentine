@@ -944,8 +944,8 @@
     <div class="music-player" id="musicPlayer" onclick="toggleMusic(event)">
         <div class="music-icon">🎵</div>
         <div class="music-info">
-            <div class="music-title">Satranga</div>
-            <div class="music-artist">Arijit Singh</div>
+            <div class="music-title">Tap to Play Music</div>
+            <div class="music-artist">Satranga - Arijit Singh</div>
         </div>
         <div class="sound-waves">
             <div class="wave"></div>
@@ -1015,25 +1015,39 @@
 
         createHearts();
 
-        // Music Player
-        const audio = new Audio('satranga.mp3');
-        audio.loop = true;
-        audio.volume = 0.4;
+        // Music Player - Initialize audio
+        let audio = null;
         let isPlaying = false;
         let isOpen = false;
+        let audioInitialized = false;
+
+        function initAudio() {
+            if (!audioInitialized) {
+                audio = new Audio('satranga.mp3');
+                audio.loop = true;
+                audio.volume = 0.4;
+                audioInitialized = true;
+            }
+        }
 
         function toggleMusic(e) {
             e.stopPropagation();
+            e.preventDefault();
+            
+            // Initialize audio on first user interaction
+            initAudio();
+            
             const player = document.getElementById('musicPlayer');
             const btn = document.getElementById('playPauseBtn');
+            const titleEl = document.querySelector('.music-title');
             
             if (isPlaying) {
                 audio.pause();
                 btn.textContent = '▶️';
                 player.classList.remove('playing');
                 isPlaying = false;
+                titleEl.textContent = 'Tap to Play Music';
             } else {
-                // For mobile, we need a user interaction to play audio
                 const playPromise = audio.play();
                 
                 if (playPromise !== undefined) {
@@ -1041,8 +1055,10 @@
                         btn.textContent = '⏸️';
                         player.classList.add('playing');
                         isPlaying = true;
+                        titleEl.textContent = 'Satranga';
                     }).catch(err => {
                         console.log('Audio play failed:', err);
+                        alert('Please make sure satranga.mp3 is in the same folder as this HTML file!');
                     });
                 }
             }
@@ -1064,21 +1080,6 @@
             setTimeout(() => {
                 musicPlayer.classList.add('compact');
             }, 800);
-            
-            // Try to start music (may be blocked on mobile - user will need to click player)
-            if (!isPlaying) {
-                const playPromise = audio.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        const btn = document.getElementById('playPauseBtn');
-                        btn.textContent = '⏸️';
-                        musicPlayer.classList.add('playing');
-                        isPlaying = true;
-                    }).catch(err => {
-                        console.log('Auto-play blocked - user needs to click music player');
-                    });
-                }
-            }
             
             // Show instruction to scroll
             instruction.textContent = '❤️ Scroll down to read ❤️';
