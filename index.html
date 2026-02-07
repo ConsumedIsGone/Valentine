@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#ff6b9d">
     <title>Riddhuuu Will You Be My Valentine?</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -146,17 +148,18 @@
         }
 
         .envelope-container:hover {
-            transform: scale(1.02);
+            transform: scale(1.05) translateY(-5px);
         }
 
         .envelope {
             position: absolute;
             width: 100%;
             height: 100%;
-            background: #f8f8f8;
+            background: linear-gradient(135deg, #faf8f5 0%, #f5f3f0 100%);
             border-radius: 5px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             overflow: hidden;
+            position: relative;
         }
 
         .envelope-flap {
@@ -168,9 +171,9 @@
             background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
             clip-path: polygon(0 0, 50% 100%, 100% 0);
             transform-origin: top;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 3;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
         .envelope-body {
@@ -179,7 +182,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #f0f0f0;
+            background: #f5f3f0;
             z-index: 1;
         }
 
@@ -205,28 +208,29 @@
             clip-path: polygon(100% 100%, 100% 0, 0 0);
         }
 
-        .wax-seal {
+        /* Simple heart icon with circle */
+        .envelope-heart {
             position: absolute;
-            top: 35%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #c0392b 0%, #962d22 100%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 50%;
-            z-index: 4;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3), inset 0 -2px 5px rgba(0,0,0,0.2);
+            font-size: 40px;
+            z-index: 4;
             transition: all 0.3s ease;
-            border: 3px solid rgba(255,255,255,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            border: 2px solid rgba(231, 76, 60, 0.3);
         }
 
-        .envelope-container:hover .wax-seal {
-            transform: translate(-50%, -50%) scale(1.1);
-            box-shadow: 0 6px 25px rgba(0,0,0,0.4), inset 0 -2px 5px rgba(0,0,0,0.2);
+        .envelope-container:hover .envelope-heart {
+            transform: translate(-50%, -50%) scale(1.15);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3);
         }
 
         /* Letter */
@@ -531,116 +535,6 @@
             display: none !important;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .envelope-container {
-                width: 280px;
-                height: 200px;
-            }
-
-            .wax-seal {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
-            }
-
-            .letter {
-                padding: 30px 25px;
-            }
-
-            .letter-header h1 {
-                font-size: 42px;
-            }
-
-            .letter-content {
-                font-size: 16px;
-            }
-
-            .letter-body p {
-                font-size: 17px;
-            }
-
-            .proposal-text {
-                font-size: 26px;
-            }
-
-            .btn {
-                padding: 15px 35px;
-                font-size: 18px;
-                min-width: 120px;
-            }
-
-            .success-text {
-                font-size: 48px;
-            }
-
-            .success-subtext {
-                font-size: 18px;
-            }
-
-            .instruction {
-                font-size: 12px;
-                padding: 8px 16px;
-                bottom: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .envelope-wrapper {
-                margin-top: 5vh;
-            }
-
-            .letter-header h1 {
-                font-size: 36px;
-            }
-
-            .proposal-section {
-                padding: 30px 20px;
-            }
-
-            .proposal-text {
-                font-size: 22px;
-            }
-
-            .buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 200px;
-            }
-
-            .success-text {
-                font-size: 36px;
-            }
-        }
-
-        /* Smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: rgba(255,255,255,0.1);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: rgba(231, 76, 60, 0.5);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(231, 76, 60, 0.8);
-        }
-
         /* Music Player */
         .music-player {
             position: fixed;
@@ -805,7 +699,59 @@
             50% { height: 20px; }
         }
 
+        /* Mobile Responsive */
         @media (max-width: 768px) {
+            .envelope-container {
+                width: 280px;
+                height: 200px;
+            }
+
+            .envelope-heart {
+                width: 70px;
+                height: 70px;
+                font-size: 34px;
+            }
+
+            .letter {
+                padding: 30px 25px;
+            }
+
+            .letter-header h1 {
+                font-size: 42px;
+            }
+
+            .letter-content {
+                font-size: 16px;
+            }
+
+            .letter-body p {
+                font-size: 17px;
+            }
+
+            .proposal-text {
+                font-size: 26px;
+            }
+
+            .btn {
+                padding: 15px 35px;
+                font-size: 18px;
+                min-width: 120px;
+            }
+
+            .success-text {
+                font-size: 48px;
+            }
+
+            .success-subtext {
+                font-size: 18px;
+            }
+
+            .instruction {
+                font-size: 12px;
+                padding: 8px 16px;
+                bottom: 20px;
+            }
+
             .music-player {
                 bottom: 15px;
                 padding: 14px 20px;
@@ -855,19 +801,62 @@
                 0%, 100% { height: 6px; }
                 50% { height: 16px; }
             }
-	.letter-peek {
-    position: absolute;
-    bottom: 18px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 92%;
-    height: 85%;
-    background: #fffef9;
-    border-radius: 4px 4px 0 0;
-    box-shadow: 0 -2px 6px rgba(0,0,0,0.15);
-    z-index: 2;
-    transition: transform 0.8s ease;
-}
+        }
+
+        @media (max-width: 480px) {
+            .envelope-wrapper {
+                margin-top: 5vh;
+            }
+
+            .letter-header h1 {
+                font-size: 36px;
+            }
+
+            .proposal-section {
+                padding: 30px 20px;
+            }
+
+            .proposal-text {
+                font-size: 22px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 200px;
+            }
+
+            .success-text {
+                font-size: 36px;
+            }
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(231, 76, 60, 0.5);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(231, 76, 60, 0.8);
         }
     </style>
 </head>
@@ -885,9 +874,7 @@
             <div class="envelope-container" id="envelope" onclick="openLetter()">
                 <div class="envelope">
                     <div class="envelope-flap" id="flap"></div>
-		    <div class="letter-peek"></div>
-                    <div class="wax-seal">💌</div>
-
+                    <div class="envelope-heart">❤️</div>
                     <div class="envelope-body"></div>
                 </div>
             </div>
@@ -954,7 +941,7 @@
     </div>
 
     <!-- Music Player -->
-    <div class="music-player" id="musicPlayer" onclick="toggleMusic()">
+    <div class="music-player" id="musicPlayer" onclick="toggleMusic(event)">
         <div class="music-icon">🎵</div>
         <div class="music-info">
             <div class="music-title">Satranga</div>
@@ -965,7 +952,7 @@
             <div class="wave"></div>
             <div class="wave"></div>
         </div>
-        <button class="play-pause-btn" id="playPauseBtn">▶️</button>
+        <button class="play-pause-btn" id="playPauseBtn" onclick="toggleMusic(event)">▶️</button>
     </div>
 
     <div class="instruction" id="instruction">✨ Click to Open ✨</div>
@@ -989,24 +976,16 @@
                 'radial-gradient(circle, rgba(255,182,193,0.7), rgba(255,182,193,0.3), transparent)'
             ];
             
-            // Create multiple bokeh circles
             for (let i = 0; i < 15; i++) {
                 const bokeh = document.createElement('div');
                 bokeh.className = 'bokeh';
                 
-                // Random size between 200px and 400px (increased from 150-300)
                 const size = Math.random() * 200 + 200;
                 bokeh.style.width = size + 'px';
                 bokeh.style.height = size + 'px';
-                
-                // Random position
                 bokeh.style.left = Math.random() * 100 + '%';
                 bokeh.style.top = Math.random() * 100 + '%';
-                
-                // Random color gradient
                 bokeh.style.background = bokehColors[Math.floor(Math.random() * bokehColors.length)];
-                
-                // Random animation duration and delay
                 bokeh.style.animation = `float-bokeh ${Math.random() * 10 + 15}s ease-in-out infinite, pulse-bokeh ${Math.random() * 5 + 5}s ease-in-out infinite`;
                 bokeh.style.animationDelay = `${Math.random() * 5}s`;
                 
@@ -1036,7 +1015,38 @@
 
         createHearts();
 
+        // Music Player
+        const audio = new Audio('satranga.mp3');
+        audio.loop = true;
+        audio.volume = 0.4;
+        let isPlaying = false;
         let isOpen = false;
+
+        function toggleMusic(e) {
+            e.stopPropagation();
+            const player = document.getElementById('musicPlayer');
+            const btn = document.getElementById('playPauseBtn');
+            
+            if (isPlaying) {
+                audio.pause();
+                btn.textContent = '▶️';
+                player.classList.remove('playing');
+                isPlaying = false;
+            } else {
+                // For mobile, we need a user interaction to play audio
+                const playPromise = audio.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        btn.textContent = '⏸️';
+                        player.classList.add('playing');
+                        isPlaying = true;
+                    }).catch(err => {
+                        console.log('Audio play failed:', err);
+                    });
+                }
+            }
+        }
 
         function openLetter() {
             if (isOpen) return;
@@ -1045,11 +1055,30 @@
             const flap = document.getElementById('flap');
             const letterContainer = document.getElementById('letterContainer');
             const instruction = document.getElementById('instruction');
+            const musicPlayer = document.getElementById('musicPlayer');
             
             // Animate envelope opening
-            flap.style.transform = 'rotateX(160deg)';
-	    document.querySelector('.letter-peek')
-    .style.transform = 'translateX(-50%) translateY(-25px)';
+            flap.style.transform = 'rotateX(180deg)';
+            
+            // Make music player compact after a delay
+            setTimeout(() => {
+                musicPlayer.classList.add('compact');
+            }, 800);
+            
+            // Try to start music (may be blocked on mobile - user will need to click player)
+            if (!isPlaying) {
+                const playPromise = audio.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        const btn = document.getElementById('playPauseBtn');
+                        btn.textContent = '⏸️';
+                        musicPlayer.classList.add('playing');
+                        isPlaying = true;
+                    }).catch(err => {
+                        console.log('Auto-play blocked - user needs to click music player');
+                    });
+                }
+            }
             
             // Show instruction to scroll
             instruction.textContent = '❤️ Scroll down to read ❤️';
@@ -1058,14 +1087,12 @@
             setTimeout(() => {
                 letterContainer.classList.add('visible');
                 
-                // Smooth scroll to letter on mobile
                 if (window.innerWidth <= 768) {
                     setTimeout(() => {
                         letterContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }, 300);
                 }
                 
-                // Hide instruction after a delay
                 setTimeout(() => {
                     instruction.classList.add('hidden');
                 }, 3000);
@@ -1079,10 +1106,8 @@
             const success = document.getElementById('successMessage');
             success.classList.add('show');
             
-            // Prevent background scrolling
             document.body.style.overflow = 'hidden';
             
-            // Create confetti explosion
             const colors = ['#f1c40f', '#e74c3c', '#3498db', '#9b59b6', '#e91e63', '#2ecc71', '#f39c12'];
             
             for (let i = 0; i < 100; i++) {
@@ -1095,7 +1120,6 @@
                     confetti.style.width = (Math.random() * 10 + 8) + 'px';
                     confetti.style.height = confetti.style.width;
                     
-                    // Random shapes
                     if (Math.random() > 0.5) {
                         confetti.style.borderRadius = '50%';
                     } else {
@@ -1118,7 +1142,6 @@
             const container = btn.parentElement;
             const containerRect = container.getBoundingClientRect();
             
-            // Calculate random position within container bounds
             const maxX = containerRect.width - btn.offsetWidth;
             const maxY = containerRect.height - btn.offsetHeight;
             
@@ -1128,7 +1151,6 @@
             btn.style.transform = `translate(${x}px, ${y}px)`;
             btn.style.transition = 'transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
             
-            // Change text occasionally
             const texts = ['No', 'Are you sure?', 'Really?', 'Think again!', 'Please?'];
             if (Math.random() > 0.7) {
                 btn.textContent = texts[Math.floor(Math.random() * texts.length)];
@@ -1150,84 +1172,6 @@
             }
             lastTouchEnd = now;
         }, false);
-
-        // Music Player
-        const audio = new Audio('satranga.mp3');
-        audio.loop = true;
-        audio.volume = 0.4;
-        let isPlaying = false;
-
-        function toggleMusic() {
-            const player = document.getElementById('musicPlayer');
-            const btn = document.getElementById('playPauseBtn');
-            
-            if (isPlaying) {
-                audio.pause();
-                btn.textContent = '▶️';
-                player.classList.remove('playing');
-                isPlaying = false;
-            } else {
-                audio.play().catch(err => {
-                    console.log('Audio play failed:', err);
-                });
-                btn.textContent = '⏸️';
-                player.classList.add('playing');
-                isPlaying = true;
-            }
-        }
-
-        // Auto-play when envelope is opened (browsers may block this)
-        function openLetter() {
-            if (isOpen) return;
-            isOpen = true;
-            
-            const flap = document.getElementById('flap');
-            const letterContainer = document.getElementById('letterContainer');
-            const instruction = document.getElementById('instruction');
-            const musicPlayer = document.getElementById('musicPlayer');
-            
-            // Animate envelope opening
-            flap.style.transform = 'rotateX(180deg)';
-            
-            // Make music player compact after a delay
-            setTimeout(() => {
-                musicPlayer.classList.add('compact');
-            }, 800);
-            
-            // Try to start music
-            if (!isPlaying) {
-                audio.play().then(() => {
-                    const player = document.getElementById('musicPlayer');
-                    const btn = document.getElementById('playPauseBtn');
-                    btn.textContent = '⏸️';
-                    player.classList.add('playing');
-                    isPlaying = true;
-                }).catch(err => {
-                    console.log('Auto-play blocked, user needs to click play button');
-                });
-            }
-            
-            // Show instruction to scroll
-            instruction.textContent = '❤️ Scroll down to read ❤️';
-            
-            // Reveal letter after envelope animation
-            setTimeout(() => {
-                letterContainer.classList.add('visible');
-                
-                // Smooth scroll to letter on mobile
-                if (window.innerWidth <= 768) {
-                    setTimeout(() => {
-                        letterContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 300);
-                }
-                
-                // Hide instruction after a delay
-                setTimeout(() => {
-                    instruction.classList.add('hidden');
-                }, 3000);
-            }, 400);
-        }
     </script>
 </body>
-
 </html>
