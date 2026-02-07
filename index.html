@@ -21,15 +21,16 @@
         }
 
         body {
-            font-family: 'Cormorant Garamond', serif;
-            background: linear-gradient(135deg, #ff6b9d, #c06c84, #ffc1cc);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            min-height: 100vh;
-            position: relative;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
+    font-family: 'Cormorant Garamond', serif;
+    background: linear-gradient(135deg, #0f0c14, #1b1426, #2a1f3d);
+    background-size: 400% 400%;
+    animation: gradientShift 18s ease infinite;
+    min-height: 100vh;
+    position: relative;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
@@ -156,9 +157,9 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #faf8f5 0%, #f5f3f0 100%);
-            border-radius: 5px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #2b2336 0%, #1f1828 100%);
+    		border-radius: 6px;
+    		box-shadow: 0 25px 70px rgba(0,0,0,0.6);
             overflow: hidden;
             position: relative;
         }
@@ -169,7 +170,7 @@
             left: 0;
             width: 100%;
             height: 50%;
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            background: linear-gradient(135deg, #b8324a 0%, #7a1e2e 100%);
             clip-path: polygon(0 0, 50% 100%, 100% 0);
             transform-origin: top;
             transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -183,7 +184,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #f5f3f0;
+            background: #1f1828;
             z-index: 1;
         }
 
@@ -194,7 +195,7 @@
             left: 0;
             width: 50%;
             height: 50%;
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            ackground: linear-gradient(135deg, #b8324a 0%, #7a1e2e 100%);
             clip-path: polygon(0 100%, 100% 0, 0 0);
         }
 
@@ -205,7 +206,7 @@
             right: 0;
             width: 50%;
             height: 50%;
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            ackground: linear-gradient(135deg, #b8324a 0%, #7a1e2e 100%);
             clip-path: polygon(100% 100%, 100% 0, 0 0);
         }
 
@@ -254,10 +255,11 @@
         }
 
         .letter {
-            background: linear-gradient(135deg, #fffef9 0%, #faf8f3 100%);
-            border-radius: 10px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.05);
-            padding: 50px;
+            background: linear-gradient(135deg, #1b1623 0%, #15101c 100%);
+    border-radius: 12px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7),
+                0 0 0 1px rgba(255,255,255,0.04);
+    padding: 50px;
             position: relative;
             overflow: hidden;
         }
@@ -269,11 +271,12 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #e74c3c, #c0392b, #e74c3c);
+            background: linear-gradient(90deg, #ff6b9d, #c84b7d, #ff6b9d);
         }
 
         .letter-content {
-            color: #2c3e50;
+            color: #e6e1f0;
+
             line-height: 1.9;
             font-size: 18px;
             position: relative;
@@ -290,16 +293,16 @@
         .letter-header h1 {
             font-family: 'Great Vibes', cursive;
             font-size: 56px;
-            color: #c0392b;
+            color: #ff6b9d;
             margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            text-shadow: 0 0 12px rgba(255,107,157,0.4);
             letter-spacing: 2px;
         }
 
         .letter-header .subtitle {
             font-family: 'Montserrat', sans-serif;
             font-size: 14px;
-            color: #7f8c8d;
+            color: #b8b1c8;
             text-transform: uppercase;
             letter-spacing: 3px;
             font-weight: 300;
@@ -309,7 +312,8 @@
             margin-bottom: 25px;
             text-align: justify;
             font-size: 19px;
-            color: #34495e;
+            color: #d9d3e6;
+
         }
 
         .letter-signature {
@@ -409,9 +413,9 @@
         }
 
         .btn-yes {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            background: linear-gradient(135deg, #ff6b9d 0%, #c84b7d 100%);
+    box-shadow: 0 10px 30px rgba(255,107,157,0.5);;
             color: white;
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
             border: 2px solid transparent;
         }
 
@@ -422,8 +426,8 @@
         }
 
         .btn-no {
-            background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
-            color: white;
+            background: linear-gradient(135deg, #444 0%, #2c2c2c 100%);
+    	color: #eee;
             position: relative;
             box-shadow: 0 4px 15px rgba(149, 165, 166, 0.3);
         }
@@ -513,7 +517,7 @@
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            color: rgba(255,255,255,0.9);
+            color: #eee;
             font-family: 'Montserrat', sans-serif;
             font-size: 14px;
             font-weight: 300;
@@ -521,10 +525,10 @@
             animation: bounce 2s infinite;
             z-index: 5;
             text-transform: uppercase;
-            background: rgba(0,0,0,0.2);
+            background: rgba(255,255,255,0.08);
             padding: 10px 20px;
             border-radius: 30px;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
         }
 
         @keyframes bounce {
@@ -655,6 +659,7 @@
 
             .proposal-text {
                 font-size: 22px;
+		color: #ff6b9d;
             }
 
             .buttons {
