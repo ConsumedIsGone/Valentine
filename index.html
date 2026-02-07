@@ -536,19 +536,7 @@
             display: none !important;
         }
 
-    
-
-        @keyframes pulse-glow {
-            0%, 100% { 
-                filter: drop-shadow(0 2px 8px rgba(231, 76, 60, 0.3));
-            }
-            50% { 
-                filter: drop-shadow(0 4px 16px rgba(231, 76, 60, 0.6));
-            }
-        }
-
-
-        /* Mobile Responsive */
+                /* Mobile Responsive */
         @media (max-width: 768px) {
             .envelope-container {
                 width: 280px;
@@ -789,7 +777,10 @@
         </div>
     </div>
 
+    
     <script>
+
+	let isOpen = false;
         // Create bokeh effect
         function createBokeh() {
             const container = document.getElementById('bokehContainer');
@@ -840,21 +831,6 @@
 
         createHearts();
 
-        // Music Player - Initialize audio
-        let audio = null;
-        let isPlaying = false;
-        let isOpen = false;
-        let audioInitialized = false;
-
-        function initAudio() {
-            if (!audioInitialized) {
-                audio = new Audio('satranga.mp3');
-                audio.loop = true;
-                audio.volume = 0.4;
-                audioInitialized = true;
-            }
-        }
-
 
         function openLetter() {
             if (isOpen) return;
@@ -862,21 +838,32 @@
             
             const flap = document.getElementById('flap');
             const letterContainer = document.getElementById('letterContainer');
+            const instruction = document.getElementById('instruction');
+            
             
             // Animate envelope opening
             flap.style.transform = 'rotateX(180deg)';
             
             
+            
             // Show instruction to scroll
             instruction.textContent = '❤️ Scroll down to read ❤️';
-        
+            
+            // Reveal letter after envelope animation
+            setTimeout(() => {
+                letterContainer.classList.add('visible');
                 
                 if (window.innerWidth <= 768) {
                     setTimeout(() => {
                         letterContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }, 300);
                 }
-
+                
+                setTimeout(() => {
+                    instruction.classList.add('hidden');
+                }, 3000);
+            }, 400);
+        }
 
         function sayYes(e) {
             e.stopPropagation();
@@ -952,8 +939,11 @@
             lastTouchEnd = now;
         }, false);
     </script>
+<div class="instruction" id="instruction">❤️ Tap the envelope ❤️</div>
+<div class="success-message" id="successMessage">
+    <div class="success-hearts">💖💖💖</div>
+    <div class="success-text">You Said Yes!</div>
+    <div class="success-subtext">You're the bestttt! 😘</div>
+</div>
 </body>
 </html>
-
-
-
