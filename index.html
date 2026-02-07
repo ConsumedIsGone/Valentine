@@ -862,35 +862,21 @@
             
             const flap = document.getElementById('flap');
             const letterContainer = document.getElementById('letterContainer');
-            const instruction = document.getElementById('instruction');
-            const musicPlayer = document.getElementById('musicPlayer');
             
             // Animate envelope opening
             flap.style.transform = 'rotateX(180deg)';
             
-            // Make music player compact after a delay
-            setTimeout(() => {
-                musicPlayer.classList.add('compact');
-            }, 800);
             
             // Show instruction to scroll
             instruction.textContent = '❤️ Scroll down to read ❤️';
-            
-            // Reveal letter after envelope animation
-            setTimeout(() => {
-                letterContainer.classList.add('visible');
+        
                 
                 if (window.innerWidth <= 768) {
                     setTimeout(() => {
                         letterContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }, 300);
                 }
-                
-                setTimeout(() => {
-                    instruction.classList.add('hidden');
-                }, 3000);
-            }, 400);
-        }
+
 
         function sayYes(e) {
             e.stopPropagation();
@@ -968,5 +954,6 @@
     </script>
 </body>
 </html>
+
 
 
