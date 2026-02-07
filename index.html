@@ -536,62 +536,7 @@
             display: none !important;
         }
 
-        /* Music Player */
-        .music-player {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 250, 250, 0.95) 100%);
-            padding: 20px 30px;
-            border-radius: 60px;
-            box-shadow: 0 10px 40px rgba(231, 76, 60, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.5);
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            backdrop-filter: blur(20px);
-            border: 2px solid rgba(231, 76, 60, 0.2);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-        }
-
-        .music-player.compact {
-            bottom: 20px;
-            right: 20px;
-            left: auto;
-            transform: translateX(0);
-            padding: 14px 18px;
-            gap: 12px;
-        }
-
-        .music-player.compact .music-info {
-            display: none;
-        }
-
-        .music-player.compact .sound-waves {
-            margin-left: 0;
-        }
-
-        .music-player:hover {
-            transform: translateX(-50%) translateY(-5px);
-            box-shadow: 0 15px 50px rgba(231, 76, 60, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.8);
-            border-color: rgba(231, 76, 60, 0.4);
-        }
-
-        .music-player.compact:hover {
-            transform: translateX(0) translateY(-5px);
-        }
-
-        .music-icon {
-            font-size: 32px;
-            filter: drop-shadow(0 2px 8px rgba(231, 76, 60, 0.3));
-            transition: all 0.3s ease;
-        }
-
-        .music-player.playing .music-icon {
-            animation: spin-music 4s linear infinite, pulse-glow 2s ease-in-out infinite;
-        }
+    
 
         @keyframes pulse-glow {
             0%, 100% { 
@@ -602,103 +547,6 @@
             }
         }
 
-        @keyframes spin-music {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .music-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .music-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            font-weight: 700;
-            color: #c0392b;
-            letter-spacing: 0.5px;
-            text-shadow: 0 1px 3px rgba(192, 57, 43, 0.15);
-        }
-
-        .music-artist {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 10px;
-            color: #95a5a6;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-        }
-
-        .play-pause-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-            border: none;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4), inset 0 -2px 0 rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        .play-pause-btn::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .play-pause-btn:hover::before {
-            opacity: 1;
-        }
-
-        .play-pause-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(231, 76, 60, 0.6), inset 0 -2px 0 rgba(0, 0, 0, 0.1);
-        }
-
-        .play-pause-btn:active {
-            transform: scale(0.95);
-        }
-
-        /* Animated sound waves */
-        .sound-waves {
-            display: none;
-            align-items: center;
-            gap: 3px;
-            margin-left: 5px;
-        }
-
-        .music-player.playing .sound-waves {
-            display: flex;
-        }
-
-        .wave {
-            width: 3px;
-            height: 16px;
-            background: linear-gradient(180deg, #e74c3c, #c0392b);
-            border-radius: 3px;
-            animation: wave-animation 1s ease-in-out infinite;
-        }
-
-        .wave:nth-child(1) { animation-delay: 0s; }
-        .wave:nth-child(2) { animation-delay: 0.2s; }
-        .wave:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes wave-animation {
-            0%, 100% { height: 8px; }
-            50% { height: 20px; }
-        }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
@@ -941,30 +789,6 @@
         </div>
     </div>
 
-    <!-- Music Player -->
-    <div class="music-player" id="musicPlayer" onclick="toggleMusic(event)">
-        <div class="music-icon">🎵</div>
-        <div class="music-info">
-            <div class="music-title">Tap to Play Music</div>
-            <div class="music-artist">Satranga - Arijit Singh</div>
-        </div>
-        <div class="sound-waves">
-            <div class="wave"></div>
-            <div class="wave"></div>
-            <div class="wave"></div>
-        </div>
-        <button class="play-pause-btn" id="playPauseBtn" onclick="toggleMusic(event)">▶️</button>
-    </div>
-
-    <div class="instruction" id="instruction">✨ Click to Open ✨</div>
-
-    <!-- Success Message -->
-    <div class="success-message" id="successMessage">
-        <div class="success-hearts">💕💖💕</div>
-        <div class="success-text">You Said Yes!</div>
-        <div class="success-subtext">You've Made Me The Happiest Person Alive</div>
-    </div>
-
     <script>
         // Create bokeh effect
         function createBokeh() {
@@ -1169,3 +993,4 @@
     </script>
 </body>
 </html>
+
