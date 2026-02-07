@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1031,38 +1032,30 @@
         }
 
         function toggleMusic(e) {
-            e.stopPropagation();
-            e.preventDefault();
-            
-            // Initialize audio on first user interaction
-            initAudio();
-            
-            const player = document.getElementById('musicPlayer');
-            const btn = document.getElementById('playPauseBtn');
-            const titleEl = document.querySelector('.music-title');
-            
-            if (isPlaying) {
-                audio.pause();
-                btn.textContent = '▶️';
-                player.classList.remove('playing');
-                isPlaying = false;
-                titleEl.textContent = 'Tap to Play Music';
-            } else {
-                const playPromise = audio.play();
-                
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        btn.textContent = '⏸️';
-                        player.classList.add('playing');
-                        isPlaying = true;
-                        titleEl.textContent = 'Satranga';
-                    }).catch(err => {
-                        console.log('Audio play failed:', err);
-                        alert('Please make sure satranga.mp3 is in the same folder as this HTML file!');
-                    });
-                }
-            }
-        }
+    e.stopPropagation();
+    e.preventDefault();
+
+    const audio = document.getElementById('bgm');
+    const player = document.getElementById('musicPlayer');
+    const btn = document.getElementById('playPauseBtn');
+    const titleEl = document.querySelector('.music-title');
+
+    if (audio.paused) {
+        audio.volume = 0.4;
+        audio.play(); // ← do not await, do not then, do not catch
+
+        btn.textContent = '⏸️';
+        player.classList.add('playing');
+        titleEl.textContent = 'Satranga';
+    } else {
+        audio.pause();
+
+        btn.textContent = '▶️';
+        player.classList.remove('playing');
+        titleEl.textContent = 'Tap to Play Music';
+    }
+}
+
 
         function openLetter() {
             if (isOpen) return;
